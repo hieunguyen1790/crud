@@ -21,7 +21,7 @@ class Users extends BaseController
 
 		$this->crud = new Crud($params, service('request'));
 	}
-
+	
 	public function index()
 	{
 		$page = 1;
@@ -39,9 +39,34 @@ class Users extends BaseController
 			['u_id', 'ASC']
 		];
 		$data['table'] = $this->crud->view($page, $per_page, $columns, $where, $order);
+		
 		return view('admin/users/table', $data);
 	}
+	
+	public function add(){
+		$data['form'] = $form = $this->crud->form();
+		$data['title'] = $this->crud->getAddTitle();
 
+		if(is_array($form) && isset($form['redirect']))
+			return redirect()->to($form['redirect']);
+
+		return view('admin/users/form', $data);
+	}
+
+	public function edit($id)
+	{
+		if(!$this->crud->current_values($id))
+			return redirect()->to($this->crud->getBase() . '/' . $this->crud->getTable());
+
+		$data['item_id'] = $id;
+		$data['form'] = $form = $this->crud->form();
+		$data['title'] = $this->crud->getEditTitle();
+
+		if (is_array($form) && isset($form['redirect']))
+			return redirect()->to($form['redirect']);
+		
+		return view('admin/users/form', $data);
+	}
 	//--------------------------------------------------------------------
 	protected function field_options()
 	{
