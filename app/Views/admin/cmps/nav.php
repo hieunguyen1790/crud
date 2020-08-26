@@ -21,8 +21,7 @@
         </li>
         <li class="nav-item">
             <a href="<?= base_url();?>/blog" class="nav-link <?= $request->uri->getSegment(1) == 'blog' ? 'active' : null; ?>">
-                <i class="nav-icon fas fa-list-alt"></i>
-                <p>Blog</p>
+                <i class="nav-icon fas fa-list-alt"></i><p>Blog</p>
             </a>
         </li>
     </ul>
