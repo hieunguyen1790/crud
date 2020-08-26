@@ -165,6 +165,7 @@
             <?= view_cell('\App\Libraries\Admin::title', ['title' => @$title]) ?>
             <section class="content">
                 <div class="container-fluid">
+                    <?= $this->include('admin/cmps/alerts')?>
                     <?= $this->renderSection('content') ?>
                 </div><!-- /.container-fluid -->
             </section>
