@@ -1,8 +1,6 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <?php
-        $request = service('request');
-        ?>
+        <?php $request = service('request'); ?>
         <li class="nav-item">
             <a href="<?= base_url();?>" class="nav-link <?= !$request->uri->getSegment(1) ? 'active' : null; ?>">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
