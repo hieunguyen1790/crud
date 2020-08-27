@@ -15,10 +15,17 @@
         </li>
         <li class="nav-item">
             <a href="<?= base_url();?>/projects" class="nav-link <?= $request->uri->getSegment(1) == 'projects' ? 'active' : null; ?>">
-                <i class="nav-icon fas fa-project-diagram"></i>
+                <i class="nav-icon fas fa-cubes"></i>
                 <p>Projects</p>
             </a>
         </li> 
+        
+        <li class="nav-item">
+            <a href="<?= base_url();?>/tags" class="nav-link <?= $request->uri->getSegment(1) == 'tags' ? 'active' : null; ?>">
+                <i class="nav-icon fas fa-tags"></i>
+                <p>Tags</p>
+            </a>
+        </li>
         <li class="nav-item">
             <a href="<?= base_url();?>/blog" class="nav-link <?= $request->uri->getSegment(1) == 'blog' ? 'active' : null; ?>">
                 <i class="nav-icon fas fa-list-alt"></i><p>Blog</p>
