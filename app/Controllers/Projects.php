@@ -79,19 +79,19 @@ class Projects extends BaseController
 	protected function field_options()
 	{
 		$fields = [];
-		// $fields['p_id'] = ['label' => 'ID'];
-		// $fields['p_uid'] = [
-		// 	'label' => 'User',
-		// 	'required' => true,
-		// 	'type' => 'dropdown',
-		// 	'relation' => [
-		// 		'table'=> 'users',
-		// 		'primary_key' => 'u_id',
-		// 		'display' => ['u_firstname', 'u_lastname'],
-		// 		'order_by' => 'u_firstname',
-		// 		'order' => 'ASC'
-		// 		]
-		// 	];
+		$fields['p_id'] = ['label' => 'ID'];
+		$fields['p_uid'] = [
+			'label' => 'User',
+			'required' => true,
+			'type' => 'dropdown',
+			'relation' => [
+				'table'=> 'users',
+				'primary_key' => 'u_id',
+				'display' => ['u_firstname', 'u_lastname'],
+				'order_by' => 'u_firstname',
+				'order' => 'ASC'
+				]
+			];
 		// $fields['tags'] = [
 		// 	'label' => 'Tags',
 		// 	'required' => false,
@@ -147,14 +147,14 @@ class Projects extends BaseController
 		// 	'delete_file' => true,
 		// 	'delete_button_class' => 'btn btn-danger btn-xs'
 		// ];
-		// $fields['p_description'] = ['label' => 'Description', 'type' => 'editor'];
-		// $fields['p_start_date'] = ['label' => 'Starts at', 'required' => true, 'class' => 'col-12 col-sm-6'];
-		// $fields['p_end_date'] = ['label' => 'Ends at', 'required' => true, 'class' => 'col-12 col-sm-6'];
-		// $fields['p_title'] = ['label' => 'Title', 'required' => true];
-		// $fields['p_status'] = ['label' => 'Status', 'required' => true, 'class' => 'col-12 col-sm-6'];
-		// $fields['p_price'] = ['label' => 'Price', 'required' => true, 'class' => 'col-12 col-sm-6'];
-		// $fields['p_created_at'] = ['type' => 'unset'];
-		// $fields['p_updated_at'] = ['type' => 'unset'];
+		$fields['p_description'] = ['label' => 'Description', 'type' => 'editor'];
+		$fields['p_start_date'] = ['label' => 'Starts at', 'required' => true, 'class' => 'col-12 col-sm-6'];
+		$fields['p_end_date'] = ['label' => 'Ends at', 'required' => true, 'class' => 'col-12 col-sm-6'];
+		$fields['p_title'] = ['label' => 'Title', 'required' => true];
+		$fields['p_status'] = ['label' => 'Status', 'required' => true, 'class' => 'col-12 col-sm-6'];
+		$fields['p_price'] = ['label' => 'Price', 'required' => true, 'class' => 'col-12 col-sm-6'];
+		$fields['p_created_at'] = ['type' => 'unset'];
+		$fields['p_updated_at'] = ['type' => 'unset'];
 		return $fields;
 	}
 

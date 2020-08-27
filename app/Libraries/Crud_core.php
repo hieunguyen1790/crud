@@ -98,26 +98,27 @@ class Crud_core
     {
         $this->id_field = $this->get_primary_key_field_name();
 
-        $this->current_values = $item = $this->model->getItem($this->table, [$this->id_field => $id]);
+        $this->current_values = $item = $this->model->getItem($this->table, $this->id_field, [$this->id_field => $id]);
+
         if (!$item) {
             $this->flash('warning', 'The record does not exist');
             return false;
         }
 
-        foreach ($this->fields as $field => $options) {
+        // foreach ($this->fields as $field => $options) {
 
-            if (isset($options['type']) && $options['type'] == 'file') {
-                $this->files[$field] = $item->{$field};
-            }
+        //     if (isset($options['type']) && $options['type'] == 'file') {
+        //         $this->files[$field] = $item->{$field};
+        //     }
 
-            if (isset($options['type']) && $options['type'] == 'files') {
+        //     if (isset($options['type']) && $options['type'] == 'files') {
 
-                $fileTable = $options['files_relation']['files_table'];
-                $where = [$options['files_relation']['parent_field'] => $id];
-                $files = $this->model->getAnyItems($fileTable, $where);
-                $this->files[$field] = $files;
-            }
-        }
+        //         $fileTable = $options['files_relation']['files_table'];
+        //         $where = [$options['files_relation']['parent_field'] => $id];
+        //         $files = $this->model->getAnyItems($fileTable, $where);
+        //         $this->files[$field] = $files;
+        //     }
+        // }
 
 
 
@@ -388,19 +389,19 @@ class Crud_core
 
 
                 }
-                $insertedFilesAffectedRows = false;
-                if ($filesData) {
-                    foreach ($filesData as $fileDataKey => $fileDataOptions) {
-                        $insertedFilesAffectedRows = $this->filesHandler($fileDataKey, $fileDataOptions);
-                    }
-                }
+                // $insertedFilesAffectedRows = false;
+                // if ($filesData) {
+                //     foreach ($filesData as $fileDataKey => $fileDataOptions) {
+                //         $insertedFilesAffectedRows = $this->filesHandler($fileDataKey, $fileDataOptions);
+                //     }
+                // }
 
-                if ($insertedFilesAffectedRows || $affected || $toDelete || $toInsert)
-                    $this->flash('success', 'Successfully Updated');
-                else
-                    $this->flash('warning', 'The record was not updated or no changes were made');
+                // if ($insertedFilesAffectedRows || $affected || $toDelete || $toInsert)
+                //     $this->flash('success', 'Successfully Updated');
+                // else
+                //     $this->flash('warning', 'The record was not updated or no changes were made');
 
-                return ['redirect' => $this->base . '/' . $this->table . '/edit/' . $this->id];
+                return ['redirect' => $this->base . '/crud/' . $this->table . '/edit/' . $this->id];
             } else {
                 // echo '<div>';
                 //  print_r($this->validator->getErrors());
